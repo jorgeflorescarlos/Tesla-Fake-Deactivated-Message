@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .screen {
+            display: flex;
+            height: 100vh; /* Makes the container take full viewport height */
+            width: 100vw;
+            flex-direction: column;
+        }
+        .red_block {
+            background: red;
+            margin: 5vh 20vw 0;
+            padding: 0.7em 0;
+        }
+        .title {
+            font-family:
+                Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal,
+                "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black",
+                "sans serif";
+            font-weight: 900;
+            color: black;
+            font-size: 3.4em;
+        }
+        .blinking {
+            position: fixed;
+            animation: blink 1s infinite;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 0, 0, 0.8),
+                rgba(255, 0, 0, 0.5),
+                rgba(255, 0, 0, 0.3),
+                rgba(255, 0, 0, 0.2),
+                rgba(255, 0, 0, 0)
+            );
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            z-index: 20;
+        }
+        .warning {
+            flex: 1;
+            text-align: center;
+            color: gray;
+            padding: 0 0 3vh;
+        }
+        .text {
+            font-size: 1.5rem;
+            line-height: 1.5;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: normal;
+        }
+        .greek-text {
+            font-family: "Times New Roman", serif;
+            font-size: 1.7rem;
+            opacity: 0.8;
+            letter-spacing: 8px;
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+        .logo {
+            overflow: hidden;
+            display: flex;
+            flex: 1;
+            background-color: #f0f0f0;
+            font-size: 30px;
+            color: #333;
+            justify-content: center;
+        }
+        .image {
+            object-fit: contain;
+        }
+    </style>
+    <meta charset="UTF-8" />
+    <body>
+        <div class="screen">
+            <div class="blinking" ondblclick="replaceModel()"></div>
+            <div class="warning">
+                <div class="red_block">
+                    <div class="title">
+                        TESLA
+                        <span id="model">MODEL 3</span>
+                        DE-ACTIVATED
+
+                        <div class="text">
+                            CRITICAL ISSUE DETECTED | CONTACT CUSTOMER SERVICE
+                        </div>
+                        <div class="text">
+                            COMPLY WITH CEASE & DESIST TO RE-ACTIVATE
+                        </div>
+                    </div>
+                </div>
+                <p></p>
+                <div class="text">UPDATE FAILED, RETURN TO DEALER.</div>
+                <div class="text">
+                    FALLÓ LA ACTUALIZACIÓN, REGRESE AL CONCESIONARIO.
+                </div>
+                <div class="text">
+                    ÉCHEC DE LA MISE À JOUR, CONSULTEZ VOTRE CONCESSIONNAIRE
+                </div>
+                <div class="text">
+                    AKTUALIZACE SE NEZDARILA. OBRATTE SE NA DEALERA.
+                </div>
+                <div class="text">
+                    OPDATERING MISLYKKEDES. KONTAKT FORHANDLEREN.
+                </div>
+                <div class="text">
+                    AKTUALISIERUNG FEHLGESCHLAGEN BITTE AN HÄNDLER WENDEN
+                </div>
+                <div class="text greek-text">
+                    ΕΝΗΜΕΡΩΣΗ ΑΠΕΤΥΧΕ. ΣΑΣ ΠΑΡΑΚΑΛΟΥΜΕ ΕΠΙΣΤΡΕΨΤΕ ΣΤΟΝ ΕΠΙΣΗΜΟ
+                </div>
+                <div class="text">请联系经销商.请返回经销商处</div>
+            </div>
+            <div class="logo">
+                <img
+                    class="image"
+                    src="https://static.vecteezy.com/system/resources/previews/020/975/565/non_2x/tesla-logo-tesla-icon-transparent-free-png.png"
+                />
+            </div>
+        </div>
+        <script>
+            function replaceModel() {
+                const newModelName = prompt("New model:");
+                if (newModelName !== null) {
+                    document.getElementById("model").innerText =
+                        newModelName.toUpperCase();
+                }
+            }
+        </script>
+    </body>
+</html>
