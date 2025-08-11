@@ -129,8 +129,15 @@
             </div>
         </div>
         <script>
-            function replaceModel() {
+            let params = new URLSearchParams(document.location.search);
+            let name = params.get("model");
+            replaceModel(name);
+            function askForModel() {
                 const newModelName = prompt("New model:");
+                replaceModel(newModelName);
+            }
+
+            function replaceModel(newModelName) {
                 if (newModelName !== null) {
                     document.getElementById("model").innerText =
                         newModelName.toUpperCase();
